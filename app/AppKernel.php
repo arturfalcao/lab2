@@ -20,6 +20,8 @@ class AppKernel extends Kernel
             new Sonata\BlockBundle\SonataBlockBundle(),
             new Knp\Bundle\MenuBundle\KnpMenuBundle(),
             new Sonata\EasyExtendsBundle\SonataEasyExtendsBundle(),
+
+
             //...
 
             // If you haven't already, add the storage bundle
@@ -37,6 +39,8 @@ class AppKernel extends Kernel
             new Bmatzner\FoundationBundle\BmatznerFoundationBundle(),
             new Sonata\AdminBundle\SonataAdminBundle(),
             new Application\Sonata\UserBundle\ApplicationSonataUserBundle(),
+            new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
+            new WhiteOctober\TCPDFBundle\WhiteOctoberTCPDFBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
@@ -52,6 +56,12 @@ class AppKernel extends Kernel
         date_default_timezone_set( 'Europe/Lisbon' );
         parent::init();
     }
+
+    public function getCharset()
+    {
+        return 'UTF-8';
+    }
+
     public function registerContainerConfiguration(LoaderInterface $loader)
     {
         $loader->load($this->getRootDir().'/config/config_'.$this->getEnvironment().'.yml');

@@ -72,6 +72,7 @@ class TClientesAdmin extends Admin
 
         $formMapper
             ->with('grupo_2',array('description' => 'Y','class' => 'col-md-4'))
+
             ->add('ftTelefone', 'integer', array('required' => true,'label' => 'Telefone'))
             ->add('ftNomeUtilizador', 'text', array('required' => false,'label' => 'Nome de Utilizador'))
             ->add('ftEmail', 'text', array('required' => true,'label' => 'Email'))
